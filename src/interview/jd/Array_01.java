@@ -43,6 +43,7 @@ public class Array_01 {
 				while(sample[++j]%2 == 0);
 				//奇奇
 			} else {
+				//偶奇 （符合要求）
 				continue;
 			}
 			int tmp = sample[i];

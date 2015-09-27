@@ -1,5 +1,7 @@
 package test;
 
+import java.util.Stack;
+
 import leetcode.tree.TreeNode;
 import leetcode.tree.ValidateBinarySearchTree;
 
@@ -40,6 +42,8 @@ public class Test {
     	
     	Test t = new Test();
     	t.testValidateBinarySearchTree();
+    	Stack<Integer> st = new Stack<Integer>();
+//    	st.
     }
     
     public void testValidateBinarySearchTree() {
