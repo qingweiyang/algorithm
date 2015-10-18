@@ -14,13 +14,31 @@ public class SummaryRanges {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] nums = {0, 2, 4, 5, 6};
-		List<String> res = new SummaryRanges().summaryRanges(nums);
+		List<String> res = new SummaryRanges().summaryRanges_02(nums);
 		
 		for(String str : res) {
 			System.out.print(str + " ");
 		}
 	}
 
+	public List<String> summaryRanges_02(int[] nums) {
+		List<String> res = new ArrayList<String>();
+		
+		for(int i = 0 ; i < nums.length ; i++) {
+			int tmp = nums[i];
+			while(i < nums.length - 1 && nums[i] + 1 == nums[i + 1]) {
+				i++;
+			}
+			
+			if(tmp != nums[i]) {
+				res.add(tmp + "->" + nums[i]);
+			} else {
+				res.add(tmp + "");
+			}
+		}
+		return res;
+	}
+	
 	public List<String> summaryRanges(int[] nums) {
         List<String> res = new ArrayList<String>();
         
