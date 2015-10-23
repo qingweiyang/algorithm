@@ -1,6 +1,6 @@
-package interview;
+package interview.others;
 
-public class ThreadRealize_02 implements Runnable{
+public class ThreadRealize_01 extends Thread{
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -10,7 +10,6 @@ public class ThreadRealize_02 implements Runnable{
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		for(int i = 0 ; i < 10 ; i++) {
 			try {
 				Thread.sleep(100);
@@ -21,5 +20,5 @@ public class ThreadRealize_02 implements Runnable{
 			System.out.println(Thread.currentThread()+" out i = "+i+" ...");
 		}
 	}
-
+	
 }
