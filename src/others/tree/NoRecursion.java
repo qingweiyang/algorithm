@@ -8,6 +8,7 @@ public class NoRecursion {
 
 	public static void main(String[] args) {
 		TreeNode root = new TreeNode(3);
+		System.out.println(root.val);
 		root.left = new TreeNode(2);
 		root.right = new TreeNode(1);
 		root.left.left = new TreeNode(5);
@@ -15,8 +16,13 @@ public class NoRecursion {
 		root.right.right = new TreeNode(6);
 		new NoRecursion().inOrder(root);
 		System.out.println();
+		new NoRecursion().inOrder_02(root);
+		System.out.println();
 		new NoRecursion().preOrder(root);
+		System.out.println();
+		new NoRecursion().preOrder_02(root);
 	}
+	
 
 	/**
 	 * 中序
@@ -43,6 +49,25 @@ public class NoRecursion {
 		
 	}
 	
+	public void inOrder_02(TreeNode root) {
+		Stack<TreeNode> s = new Stack<TreeNode>();
+		
+		TreeNode node = root;
+		while(!s.isEmpty() || node != null) {
+			//左子树压栈
+			while(node != null) {
+				s.push(node);
+				node = node.left;
+			}
+			
+			if(!s.isEmpty()) {
+				node = s.pop();
+				System.out.print(node.val + ",");
+				node = node.right;
+			}
+		}
+	}
+	
 	/**
 	 * 先序
 	 * 
@@ -54,9 +79,10 @@ public class NoRecursion {
 		}
 		
 		Stack<TreeNode> s = new Stack<TreeNode>();
-		s.push(root);
+		TreeNode node = root;
+		s.push(node);
 		while(!s.empty()) {
-			TreeNode node = s.peek();
+			node = s.peek();
 			if(node != null) {
 				System.out.print(node.val + ",");
 				s.push(node.left);
@@ -69,4 +95,23 @@ public class NoRecursion {
 			}
 		}
 	}
+	
+	public void preOrder_02(TreeNode root) {
+		Stack<TreeNode> s = new Stack<TreeNode>();
+		TreeNode node = root;
+		
+		while(!s.isEmpty() || node != null) {
+			while(node != null) {
+				System.out.print(node.val + ",");
+				s.push(node);
+				node = node.left;
+			}
+			
+			if(!s.isEmpty()) {
+				node = s.pop();
+				node = node.right;
+			}
+		}
+	}
+	
 }
